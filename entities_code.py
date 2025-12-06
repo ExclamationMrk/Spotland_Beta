@@ -364,8 +364,6 @@ class MushroomTemplate:
         
         if succeeded and len(list(self.get_walkable_tiles(tile_spread, self.position).values())) > 0:
             tile_and_origin = {}
-            tiles = []
-            origins = []
             for tile in closed_tiles:
                 x = str(tile["position"][0]) + "x"
                 y = str(tile["position"][1]) + "y"
