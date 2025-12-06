@@ -254,7 +254,7 @@ class MushroomTemplate:
             return [self.position]
              
     def get_pathfinding_costs(self, tile_position):
-        return [(abs(self.position[0] - tile_position[0]) + abs(self.position[0] - tile_position[0])), (abs(tile_position[0] - self.target_position[0]) + abs(tile_position[0] - self.target_position[0]))]
+        return [(abs(self.position[0] - tile_position[0])), (abs(tile_position[0] - self.target_position[0]))]
         
     def set_target_position_on_focus(self, selected_tiles, playerself, enemyself, tile_spread):
         if self.focus == "selected":
