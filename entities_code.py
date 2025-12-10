@@ -240,7 +240,7 @@ class MushroomTemplate:
         
         elif self.focus == "trailing":
             tiles_with_target = []
-            tiles_in_view = self.get_tiles_within_view(tile_spread)
+            tiles_in_view = self.get_tiles_within_view(tile_spread)[1::1]
             for tile in tiles_in_view:
                 if tile_spread[tile[1]][tile[0]].enemy_occupied == False and tile_spread[tile[1]][tile[0]].entity_occupied:
                     tiles_with_target.append(tile)
@@ -292,6 +292,15 @@ class MushroomTemplate:
                 self.target_position = tiles_in_view[randint(0, len(tiles_in_view) - 1)]
                 
         elif self.focus == "inverse_attacking":
+            good_tiles = self.get_target_tile_occupant_within_range(tile_spread)
+            if good_tiles != []:
+                self.target_position = good_tiles[0]
+            
+            else:
+                tiles_in_view = self.get_tiles_within_view(tile_spread)
+                self.target_position = tiles_in_view[randint(0, len(tiles_in_view) - 1)]
+
+        elif self.focus == "trailing":
             good_tiles = self.get_target_tile_occupant_within_range(tile_spread)
             if good_tiles != []:
                 self.target_position = good_tiles[0]
